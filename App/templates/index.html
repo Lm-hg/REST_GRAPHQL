@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div>
+    <form action="search" method="get">
+      <input type="tel" name="city" id="city" placeholder="Entrez la ville">
+      <input type="submit" value="Search">
+    </form>
+  </div>
+    <h1>Bienvenue sur la Plateforme de Meteo</h1>
+    <p>Découvrez les derniers .</p>
+
+    <h2>Dernières mises à jour</h2>
+    <ul>
+        {% for meteo in weather_data %}
+            <li>{{ meteo.city }} -  {{ meteo.weather }}</li>
+
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>
