@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <a href="/">Accueil</a>
+    <h1>Bienvenue {{connected_user}}</h1>
+    <p>Vos villes favorites</p>
+
+    <h2>Dernières mises à jour</h2>
+    <ul>
+        {% for meteo in weather_data %}
+            <li>{{ meteo.city }} -  {{ meteo.weather }}</li>
+            <button><a href="addFavorite?city={{meteo.city}}">Add favorite</a></button>
+
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>
