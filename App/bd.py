@@ -17,13 +17,12 @@ db = client["Modestin_hetic_db"]
 # creation collection
 # db.users.insert_one({ "name": "Alice Doe", "email": "alice@example.com", "age": 30 })
 
-data = db.users.find({})
+data = db.favoriteCity.find({})
 
-for item in data:
-    print(item)
 
 def meteoCity():
-  cities = ["Paris", "New York", "Tokyo", "Berlin", "Lyon", "Marseille"]
+  cities = ["Paris", "New York", "Tokyo", "Berlin", "Lyon", "Marseille", "Montreuil", "Maronne", "Madrid", "Rome",
+          "Sydney", "Vancouver", "Los Angeles", "Amsterdam", "Londres", "Bruxelles", "Toronto", "Barcelone", "Milan", "Prague"]
   weather_data = []
   for city in cities:
     url = f"https://wttr.in/{city}?format=%C+%t&lang=fr"
@@ -45,4 +44,4 @@ def meteoCity():
     })
   return weather_data
 
-print(meteoCity())
+# print(meteoCity())

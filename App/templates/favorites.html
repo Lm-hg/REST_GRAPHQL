@@ -1,25 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='favorite.css') }}">
 </head>
 <body>
-    <a href="/">Accueil</a>
-    <h1>Bienvenue {{connected_user}}</h1>
-    <p>Vos villes favorites</p>
+    <header>
+        <nav>
+            <a href="/" class="btn">🏠 Accueil</a>
+        </nav>
+    </header>
 
-    <h2>Dernières mises à jour</h2>
-    <ul>
-        {% for meteo in weather_data %}
-            <li>{{ meteo.city }} -  {{ meteo.weather }}</li>
-            <button><a href="addFavorite?city={{meteo.city}}">Add favorite</a></button>
+    <main class="container">
+        <h1>Bienvenue, {{ connected_user }} 👋</h1>
+        <p class="subtitle">Vos villes favorites</p>
 
-        {% endfor %}
-    </ul>
+        <section class="weather-list">
+            <h2>Dernières mises à jour 🌍</h2>
+            <ul>
+                {% for meteo in weather_data %}
+                    <li class="weather-item">
+                        <span class="city">{{ meteo.city }}</span> -  
+                        <span class="weather">{{ meteo.weather }}</span>
+                        <a href="deleteCity?city={{ meteo.city }}" class="btn delete">❌ Supprimer</a>
+                    </li>
+                {% else %}
+                    <li class="no-favorites">😢 Aucune ville dans tes favoris</li>
+                {% endfor %}
+            </ul>
+        </section>
 
+        <div class="add-city">
+            <a href="/" class="btn add">➕ Ajouter une ville</a>
+        </div>
+    </main>
 
 </body>
 </html>

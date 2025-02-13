@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +7,28 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
-  <h1>Inscription</h1>
-  <form class="form" action="login" method="POST">
-    <div class="title">Connexion</div>
-    <div class="subtitle">Bienvenue</div>
-    <div class="input-container ic2">
-      <input id="email" name="email" class="input" type="text" placeholder=" " />
-      <div class="cut cut-short"></div>
-      <label for="email" class="placeholder">Email</>
-    </div>
-    <div class="input-container ic2">
-      <input id="email" name="password" class="input" type="password" placeholder=" " />
-      <div class="cut cut-short"></div>
-      <label for="email" class="placeholder">Mot de passe</>
-    </div>
-    <button type="text" class="submit">submit</button>
-  </form>
+  <div class="container">
+    <form class="form" action="login" method="POST">
+      <div class="title">Connexion</div>
+      <div class="subtitle">Bienvenue sur notre plateforme</div>
+
+      <!-- Email Input -->
+      <div class="input-container">
+        <input id="email" name="email" class="input" type="text" placeholder=" " required />
+        <div class="cut"></div>
+        <label for="email" class="placeholder">Email</label>
+      </div>
+
+      <!-- Password Input -->
+      <div class="input-container">
+        <input id="password" name="password" class="input" type="password" placeholder=" " required />
+        <div class="cut"></div>
+        <label for="password" class="placeholder">Mot de passe</label>
+      </div>
+
+      <button type="submit" class="submit">Se connecter</button>
+      <p>Pas encore de compte?<a href="inscription">S'inscrire</a></p>
+    </form>
+  </div>
 </body>
 </html>

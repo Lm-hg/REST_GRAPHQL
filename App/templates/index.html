@@ -1,31 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='./icons/cloudy_512.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <script>
+      // Enregistrement du service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/static/service-worker.js')
+            .then((registration) => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
 </head>
 <body>
+
+  <!-- HEADER -->
+  <header>
+    {% if token %}
+        <a href="favorite">Favorite</a>
+    {% else %}
+        <a href="connexion">Connexion</a>
+    {% endif %}
+  </header>
+
+  <!-- FORMULAIRE -->
   <div>
     <form action="search" method="get">
       <input type="text" name="city" id="city" placeholder="Entrez la ville">
       <input type="submit" value="Search">
     </form>
   </div>
-    <h1>Bienvenue sur la Plateforme de Meteo</h1>
-    <p>Découvrez les derniers .</p>
 
-    <h2>Dernières mises à jour</h2>
-    <ul>
-        {% for meteo in weather_data %}
-            <li>{{ meteo.city }} -  {{ meteo.weather }} - {{meteo.temperature}}</li>
-            
-            <button><a href="addFavorite?city={{meteo.city}}">Add favorite</a></button>
+  <!-- CONTENU PRINCIPAL -->
+  <h1>Bienvenue sur la Plateforme Météo</h1>
+  <p>Découvrez les dernières prévisions météo en un clic.</p>
 
-        {% endfor %}
-    </ul>
-
+  <!-- LISTE DES DERNIÈRES MÉTÉOS -->
+  <h2>Dernières mises à jour</h2>
+  <ul>
+      {% for meteo in weather_data %}
+          <li>
+              <span><strong>{{ meteo.city }}</strong> - {{ meteo.weather }} - {{ meteo.temperature }}</span>
+              <a href="addFavorite?city={{ meteo.city }}"><button>Ajouter aux favoris</button></a>
+          </li>
+      {% endfor %}
+  </ul>
 
 </body>
 </html>

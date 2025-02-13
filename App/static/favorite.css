@@ -1,0 +1,136 @@
+/* Styles généraux */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: #007BFF;
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav .btn {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #0056b3;
+  transition: 0.3s;
+}
+
+nav .btn:hover {
+  background: #003d82;
+}
+
+/* Conteneur principal */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Titre */
+h1 {
+  color: #007BFF;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Liste des villes */
+.weather-list {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.weather-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.weather-item {
+  background: #eaf2ff;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.weather {
+  font-style: italic;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.add {
+  background: #28a745;
+  color: white;
+}
+
+.add:hover {
+  background: #218838;
+}
+
+.delete {
+  background: #dc3545;
+  color: white;
+  font-size: 14px;
+}
+
+.delete:hover {
+  background: #c82333;
+}
+
+/* Message "Aucune ville" */
+.no-favorites {
+  color: #888;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+      width: 90%;
+      padding: 15px;
+  }
+
+  .weather-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .btn {
+      width: 100%;
+      margin-top: 5px;
+  }
+}

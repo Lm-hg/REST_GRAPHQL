@@ -1,0 +1,21 @@
+{
+  "name": "Méteo",
+  "short_name": "Météo",
+  "description": "Application de prévisions météorologiques",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "/static/icons/cloudy_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/cloudy_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
